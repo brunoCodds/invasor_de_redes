@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:titleTextColor="@android:color/white"
+            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textLastUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:textColor="#888888"
+                android:layout_marginBottom="12dp" />
+
+            <!-- 1. Identificação -->
+            <TextView style="@style/SectionTitle" android:text="Identificação" />
+            <TextView style="@style/FieldLabel" android:text="SSID" />
+            <TextView android:id="@+id/textSsid" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="BSSID (MAC do AP)" />
+            <TextView android:id="@+id/textBssid" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="SSID oculto" />
+            <TextView android:id="@+id/textHidden" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Fabricante (por OUI)" />
+            <TextView android:id="@+id/textVendor" style="@style/FieldValue" />
+
+            <View style="@style/Divider" />
+
+            <!-- 2. Sinal e rádio -->
+            <TextView style="@style/SectionTitle" android:text="Sinal e rádio" />
+            <TextView style="@style/FieldLabel" android:text="RSSI" />
+            <TextView android:id="@+id/textRssi" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Frequência" />
+            <TextView android:id="@+id/textFrequency" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Banda" />
+            <TextView android:id="@+id/textBand" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Canal" />
+            <TextView android:id="@+id/textChannel" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Largura do canal" />
+            <TextView android:id="@+id/textChannelWidth" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Frequência(s) central(is)" />
+            <TextView android:id="@+id/textCenterFreq" style="@style/FieldValue" />
+
+            <View style="@style/Divider" />
+
+            <!-- 3. Padrão Wi-Fi -->
+            <TextView style="@style/SectionTitle" android:text="Padrão Wi-Fi" />
+            <TextView android:id="@+id/textWifiStandard" style="@style/FieldValue" />
+
+            <View style="@style/Divider" />
+
+            <!-- 4. Segurança -->
+            <TextView style="@style/SectionTitle" android:text="Segurança" />
+            <TextView style="@style/FieldLabel" android:text="Tipo" />
+            <TextView android:id="@+id/textSecurityLabel" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Gerenciamento de chave" />
+            <TextView android:id="@+id/textKeyManagement" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Cifras" />
+            <TextView android:id="@+id/textCiphers" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="PMF / 802.11w" />
+            <TextView android:id="@+id/textPmf" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="WPS" />
+            <TextView android:id="@+id/textWps" style="@style/FieldValue" />
+            <TextView style="@style/FieldLabel" android:text="Capabilities (bruto)" />
+            <TextView
+                android:id="@+id/textRawCapabilities"
+                style="@style/FieldValue"
+                android:fontFamily="monospace"
+                android:textSize="12sp" />
+
+            <View style="@style/Divider" />
+
+            <!-- 5. Rádio avançado (transparência) -->
+            <TextView style="@style/SectionTitle" android:text="Capacidades avançadas do AP" />
+            <TextView
+                android:id="@+id/textAdvancedRadioNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="#666666"
+                android:layout_marginTop="4dp" />
+
+            <View style="@style/Divider" />
+
+            <!-- 6. Rede/IP -->
+            <TextView style="@style/SectionTitle" android:text="Rede / IP" />
+            <TextView
+                android:id="@+id/textConnectionStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:id="@+id/groupIpInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView style="@style/FieldLabel" android:text="Endereço IPv4" />
+                <TextView android:id="@+id/textIpv4" style="@style/FieldValue" />
+                <TextView style="@style/FieldLabel" android:text="Máscara de rede" />
+                <TextView android:id="@+id/textNetmask" style="@style/FieldValue" />
+                <TextView style="@style/FieldLabel" android:text="Gateway" />
+                <TextView android:id="@+id/textGateway" style="@style/FieldValue" />
+                <TextView style="@style/FieldLabel" android:text="DNS" />
+                <TextView android:id="@+id/textDns" style="@style/FieldValue" />
+                <TextView style="@style/FieldLabel" android:text="Servidor DHCP" />
+                <TextView android:id="@+id/textDhcpServer" style="@style/FieldValue" />
+            </LinearLayout>
+
+            <View style="@style/Divider" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#999999"
+                android:text="Dados de dispositivos conectados a esta rede e de configuração administrativa do roteador (firmware, port forwarding, QoS, controle parental etc.) não são exibidos: exigiriam acesso autorizado à própria rede ou ao painel do roteador, que este app não tenta obter." />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
